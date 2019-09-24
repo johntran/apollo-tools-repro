@@ -1,0 +1,17 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "generate-types": "apollo codegen:generate --addTypename --tagName=gql --excludes \"**/node_modules/**\" --includes \"./src/**/*.{ts,tsx}\" --target typescript generatedTypes --localSchemaFile ../../tools/generate-graphql-typescript/schema.graphql --globalTypesFile ./globalTypes.ts",
+    "delete-types": "rm -rf `find ./src -type d -name generatedTypes`",
+    "apollo-types": "rushx delete-types && rushx generate-types",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "graphql-tag": "2.10.1"
+  },
+  "author": "",
+  "license": "ISC"
+}

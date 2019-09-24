@@ -1,0 +1,31 @@
+{
+  "name": "@johntran/generate-graphql-typescript",
+  "version": "0.0.0-monorepo",
+  "description": "",
+  "bin": {
+    "generate-graphql-typescript": "bin/generate-graphql-typescript.js"
+  },
+  "scripts": {
+    "build": "rm -rf ./lib/ && tsc",
+    "download-schema": "ts-node -O '{\"module\": \"commonjs\"}' ./downloadSchema.ts",
+    "generate-types": "apollo codegen:generate --addTypename --tagName=gql --excludes \"**/node_modules/**\" --includes \"../../{frontend-apps,react-components}/**/*.{ts,tsx}\" --target typescript generatedTypes --localSchemaFile ./schema.graphql --globalTypesFile ./globalTypes.ts",
+    "delete-types": "rm -rf `find ../../ -type d -name generatedTypes` && rm -rf `find ../../ -name globalTypes.ts`",
+    "old-apollo": "rushx delete-types && rushx download-schema && rushx generate-types"
+  },
+  "author": "John Tran",
+  "resolutions": {
+    "graphql": "14.5.4"
+  },
+  "dependencies": {
+    "@types/graphql": "14.2.0",
+    "@types/node-fetch": "2.3.4",
+    "graphql": "14.5.4",
+    "node-fetch": "2.6.0"
+  },
+  "devDependencies": {
+    "@types/node": "10.14.16",
+    "apollo": "2.18.3",
+    "ts-node": "8.4.1",
+    "typescript": "3.6.3"
+  }
+}
