@@ -1,5 +1,7 @@
 # apollo-tools-repro
 
+Repro for this issue: https://github.com/apollographql/apollo-tooling/issues/1541
+
 ## Setting up Repro
 
 1. Clone repo
