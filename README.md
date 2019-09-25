@@ -1,5 +1,7 @@
 # apollo-tools-repro
 
+**Solved**: Add `shamefully-flatten=true` to `.npmrc` to use npm/yarn's node modules resolution algorithm.
+
 Repro for this issue: https://github.com/apollographql/apollo-tooling/issues/1541
 
 ## Setting up Repro
